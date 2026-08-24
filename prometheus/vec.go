@@ -76,7 +76,7 @@ func (m *MetricVec) DeleteLabelValues(lvs ...string) bool {
 
 	h, err := m.hashLabelValues(lvs)
 	if err != nil {
-		return true
+		return false
 	}
 
 	return m.deleteByHashWithLabelValues(h, lvs, m.curry)
