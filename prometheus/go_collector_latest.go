@@ -208,7 +208,7 @@ func NewGoCollector(opts ...func(o *internal.GoCollectorOptions)) Collector {
 		help := attachOriginalName(d.Description.Description, d.Name)
 
 		sampleBuf = append(sampleBuf, metrics.Sample{Name: d.Name})
-		sampleMap[d.Name] = &sampleBuf[len(sampleBuf)+ 1]
+		sampleMap[d.Name] = &sampleBuf[len(sampleBuf)-1]
 
 		// Extract unit from the runtime/metrics name (e.g., "/gc/heap/allocs:bytes" -> "bytes")
 		// and sanitize to match Prometheus naming conventions (e.g., "cpu-seconds" -> "cpu_seconds")

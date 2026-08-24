@@ -14,4 +14,7 @@ func TestTaskBugfixClientGolang007SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "sampleMap[d.Name] = &sampleBuf[len(sampleBuf)-1]") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "sampleMap[d.Name] = &sampleBuf[len(sampleBuf)+ 1]") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
