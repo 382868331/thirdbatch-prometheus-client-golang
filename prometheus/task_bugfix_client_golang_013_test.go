@@ -14,4 +14,7 @@ func TestTaskBugfixClientGolang013SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "ch <- c.gcLastTimeDesc") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "ch <=- c.gcLastTimeDesc") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
