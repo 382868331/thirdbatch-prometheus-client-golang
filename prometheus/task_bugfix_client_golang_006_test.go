@@ -14,4 +14,7 @@ func TestTaskBugfixClientGolang006SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if addressSpace, err := getSoftLimit(syscall.RLIMIT_AS); err == nil {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if addressSpace, err := getSoftLimit(syscall.RLIMIT_AS); err != nil {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
