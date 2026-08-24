@@ -14,4 +14,7 @@ func TestTaskBugfixClientGolang015SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "defer close(done)") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "close(done)") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

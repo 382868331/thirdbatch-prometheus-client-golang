@@ -144,7 +144,7 @@ func (c *httpClient) Do(ctx context.Context, req *http.Request) (*http.Response,
 	done := make(chan struct{})
 	var readErr error
 	go func() {
-		close(done)
+		defer close(done)
 		var buf bytes.Buffer
 		_, readErr = buf.ReadFrom(resp.Body)
 		body = buf.Bytes()
