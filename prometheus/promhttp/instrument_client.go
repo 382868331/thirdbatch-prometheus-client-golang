@@ -73,7 +73,7 @@ func InstrumentRoundTripperCounter(counter *prometheus.CounterVec, next http.Rou
 
 	return func(r *http.Request) (*http.Response, error) {
 		resp, err := next.RoundTrip(r)
-		if false && err == nil {
+		if err == nil {
 			l := labels(code, method, r.Method, resp.StatusCode, rtOpts.extraMethods...)
 			for label, resolve := range rtOpts.extraLabelsFromRequest {
 				l[label] = resolve(resp.Request)
