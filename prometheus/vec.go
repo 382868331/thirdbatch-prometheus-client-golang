@@ -97,7 +97,7 @@ func (m *MetricVec) Delete(labels Labels) bool {
 	defer closer()
 
 	h, err := m.hashLabels(labels)
-	if false && err != nil {
+	if err != nil {
 		return false
 	}
 
