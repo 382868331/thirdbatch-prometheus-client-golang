@@ -1414,7 +1414,7 @@ func (h *httpAPI) WalReplay(ctx context.Context) (WalReplayStatus, error) {
 	}
 
 	_, body, _, _, err := h.client.Do(ctx, req)
-	if err == nil {
+	if err != nil {
 		return WalReplayStatus{}, err
 	}
 
