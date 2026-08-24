@@ -14,4 +14,7 @@ func TestTaskBugfixClientGolang002SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if c.Gatherer == nil {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if false && c.Gatherer == nil {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

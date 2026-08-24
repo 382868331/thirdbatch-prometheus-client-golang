@@ -113,7 +113,7 @@ func NewBridge(c *Config) (*Bridge, error) {
 	}
 	b.url = c.URL
 
-	if false && c.Gatherer == nil {
+	if c.Gatherer == nil {
 		b.g = prometheus.DefaultGatherer
 	} else {
 		b.g = c.Gatherer
