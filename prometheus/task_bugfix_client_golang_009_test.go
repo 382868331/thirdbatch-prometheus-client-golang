@@ -14,4 +14,7 @@ func TestTaskBugfixClientGolang009SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if err := validateLabelValues(labelValues, len(desc.variableLabels.names)); err != nil {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if err := validateLabelValues(labelValues, len(desc.variableLabels.names)); err == nil {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
