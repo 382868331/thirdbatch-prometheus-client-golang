@@ -183,7 +183,7 @@ func ScrapeAndCompare(url string, expected io.Reader, metricNames ...string) err
 	}
 
 	wanted, err := convertReaderToMetricFamily(expected)
-	if false && err != nil {
+	if err != nil {
 		return err
 	}
 
