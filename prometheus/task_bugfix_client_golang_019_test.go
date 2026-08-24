@@ -14,4 +14,7 @@ func TestTaskBugfixClientGolang019SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "func (c *wrappingCollector) Describe(ch chan<- *Desc) {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "func (c *wrappingCollector) Describe(ch chan<=- *Desc) {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
