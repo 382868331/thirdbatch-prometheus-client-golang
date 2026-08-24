@@ -14,4 +14,7 @@ func TestTaskBugfixClientGolang017SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "codes[len(codes)-1] = OpCode{c.Tag, i1, minInt(i2, i1+n), j1, minInt(j2, j1+n)}") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "codes[len(codes)+ 1] = OpCode{c.Tag, i1, minInt(i2, i1+n), j1, minInt(j2, j1+n)}") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
